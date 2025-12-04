@@ -3,36 +3,74 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>芙好薪程｜薪資外包與長照核薪方案</title>
+    <title>芙好薪程｜薪資外包與長照專屬薪資方案</title>
 
     <style>
         body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 20px; font-weight: bold; color: #007bff; }
-        nav a { margin: 0 10px; text-decoration: none; color: #444; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #444;
+        }
+
         .btn { padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; display: inline-block; }
         .btn-primary { background: #007bff; color: white; }
         .btn-outline { border: 1px solid #007bff; color: #007bff; background: white; }
-        .hero { background: url('hero-bg.png') center/cover no-repeat; padding: 120px 20px; color: white; text-align: center; }
+
+        .hero {
+            background: url('hero-bg.png') center/cover no-repeat;
+            padding: 120px 20px;
+            color: white;
+            text-align: center;
+        }
+
         .hero h1 { font-size: 36px; margin-bottom: 10px; }
         .hero p { font-size: 18px; margin-bottom: 24px; }
+
         .hero-actions a { margin: 6px; }
-        
-        /* 手機懸浮 LINE 按鈕 */
+
+        section { max-width: 900px; margin: auto; padding: 40px 20px; }
+
+        /* 懸浮 LINE 聊天按鈕 — 藍色品牌風格 */
         .line-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #06c755;
+            background: #007bff;
             color: #fff;
-            padding: 12px 14px;
-            border-radius: 50px;
-            font-size: 14px;
+            padding: 14px 16px;
+            border-radius: 50%;
+            font-size: 18px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             z-index: 9999;
+            display: flex;
+            align-items: center;
         }
-        .line-float:hover { transform: scale(1.06); }
+
+        .line-float:hover {
+            background: #0056b3;
+        }
     </style>
+
 </head>
 
 <body>
@@ -44,11 +82,11 @@
         <a href="#about">關於我們</a>
         <a href="#contact">聯繫我們</a>
 
-        <!-- ⭐ 新增 LINE 按鈕 -->
+        <!-- Header 版 LINE 按鈕（藍色系） -->
         <a href="https://line.me/ti/p/0Aa2QA4oV5"
            target="_blank"
            class="btn btn-primary"
-           style="background:#06c755;margin-left:6px;">
+           style="margin-left:6px;">
            📲 LINE 諮詢
         </a>
     </nav>
@@ -61,38 +99,30 @@
     <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">立即預約 30 分鐘線上諮詢</a>
         <a href="#services" class="btn btn-outline">查看服務內容</a>
-
-        <!-- ⭐ 新增 HERO 版 LINE 按鈕 -->
-        <a href="https://line.me/ti/p/0Aa2QA4oV5"
-           target="_blank"
-           class="btn btn-primary"
-           style="background:#06c755;">
-           📲 一鍵 LINE 諮詢
-        </a>
     </div>
 </section>
 
-<section id="services" style="padding:40px 20px; text-align:center;">
+<section id="services">
     <h2>服務內容</h2>
-    <p>專業薪資外包、核薪制度、長照薪酬方案、流程與制度落地支持。</p>
+    <p>專業薪資外包、核薪制度設計、長照薪酬方案與流程落地支援。</p>
 </section>
 
-<section id="about" style="padding:40px 20px; background:#f9f9f9;">
+<section id="about" style="background:#f9f9f9;">
     <h2>關於芙好薪程</h2>
     <p>
-        芙好薪程專注薪資外包，適合小企業、新創公司及長照／醫療機構。<br>
+        芙好薪程專注薪資外包，特別適合小企業、新創公司及長照／醫療機構。<br>
         我們協助企業減少核薪錯誤、降低稽核風險並節省行政時間，<br>
-        讓專注力真正回到照顧、產品與營運成長上。
+        讓您的團隊回到真正重要的事——照顧服務、營運與品質提升。
     </p>
 </section>
 
-<section id="contact" style="padding:40px 20px; text-align:center;">
+<section id="contact">
     <h2>聯繫我們</h2>
     <p>歡迎預約諮詢或透過 LINE 聯繫，我們將協助您評估最佳薪資外包方案。</p>
 </section>
 
-<!-- ⭐ 懸浮式 LINE 肉球按鈕 -->
-<a href="https://line.me/ti/p/0Aa2QA4oV5" class="line-float" target="_blank">📲 LINE</a>
+<!-- 懸浮式 LINE 快速諮詢按鈕（手機 + 桌機皆顯示） -->
+<a href="https://line.me/ti/p/0Aa2QA4oV5" class="line-float" target="_blank">💬</a>
 
 </body>
 </html>
