@@ -1,83 +1,962 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>芙好薪程 — 薪資外包專業服務</title>
-<style>
-    body { margin: 0; font-family: "Noto Sans TC", sans-serif; }
-    header { display: flex; justify-content: space-between; padding: 15px 40px; background: white; position: sticky; top: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
-    nav a { margin-left: 20px; text-decoration: none; color:#004a8a; font-weight: 600; }
-    .btn-line { background:#00bb2d; color:white; padding:10px 18px; border-radius:6px; text-decoration:none; }
-    .hero { background:url('service-team.png') center/cover no-repeat; height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding:20px; position:relative; }
-    .hero::before { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.45); }
-    .hero > div { position:relative; z-index:2; }
-    h1 { font-size:44px; margin-bottom:10px; font-weight:700;}
-    p { font-size:18px; }
-    .cta-wrap { margin-top:30px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-    .btn-primary { background:#0067c3; padding:12px 20px; border-radius:6px; color:white; text-decoration:none; font-weight:600; }
-    .btn-outline { border:2px solid white; padding:10px 18px; border-radius:6px; color:white; text-decoration:none; font-weight:600; }
-    section { padding:60px 8%; }
-    .contact-box { background:#f7f8fc; padding:40px; border-radius:8px; max-width:400px; margin:auto; text-align:center; }
-    footer { background:#004a8a; color:white; padding:40px 10%; text-align:center; margin-top:50px; }
-    footer a { color:#00e37b; text-decoration:none; font-weight:600; }
-</style>
+  <meta charset="UTF-8" />
+  <title>芙好薪程｜人力資源薪資外包顧問服務</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="芙好薪程提供專業薪資外包服務，為新創與長照／醫療機構量身打造專屬薪資方案，讓您能專注營運核心業務，無須被繁瑣薪資作業分心。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #1f2933;
+      background-color: #f5f7fb;
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e1e4ee;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 20px;
+      color: #135589;
+    }
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1b7fc4, #27b39d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      font-size: 14px;
+    }
+    nav a {
+      color: #4b5563;
+      padding: 6px 0;
+    }
+    nav a:hover {
+      color: #135589;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #1769aa, #25b39d);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(19, 85, 137, 0.28);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(19, 85, 137, 0.32);
+    }
+    .btn-outline {
+      border: 1px solid #cbd2e1;
+      color: #135589;
+      background: #fff;
+    }
+    .btn-outline:hover {
+      background: #eef3fb;
+    }
+
+    /* LINE Button Style (REMOVED: Now uses .btn-outline) */
+
+    /* Hero */
+    .hero {
+      padding: 48px 0 40px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e3f3ff;
+      color: #135589;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1726;
+      margin-bottom: 12px;
+    }
+    .hero-title span {
+      color: #1b7fc4;
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f0f4ff;
+      color: #374151;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .hero-note {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .hero-img {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(15, 37, 64, 0.26);
+    }
+
+    /* Sections */
+    section {
+      padding: 40px 0;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0b1726;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* Pain points */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid #e2e6f0;
+      box-shadow: 0 10px 20px rgba(15, 35, 63, 0.04);
+    }
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+    .card p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* Services */
+    .services {
+      background: radial-gradient(circle at top left, #edf5ff, #f5f7fb);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #d5deee;
+      color: #374151;
+    }
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .service-item {
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 10px 12px;
+      border: 1px solid #dde4f2;
+      font-size: 13px;
+      color: #374151;
+    }
+    .service-item b { color: #135589; }
+
+    /* Process */
+    .process-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .step {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 12px 14px;
+      border: 1px solid #e1e4f0;
+      font-size: 13px;
+      color: #374151;
+    }
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #135589;
+      color: #fff;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    /* Analytics */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .analytics-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+    .analytics-tags span {
+      background: #eef2ff;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #4338ca;
+    }
+
+    /* Cases */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .case-chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #bbf7d0;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .case-list {
+      font-size: 13px;
+      color: #374151;
+      padding-left: 16px;
+    }
+    .case-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Support */
+    .support {
+      background: #0c1530;
+      color: #e5e7eb;
+    }
+    .support-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .support-badge {
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.16);
+      color: #a5f3fc;
+      margin-bottom: 10px;
+    }
+    .support-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .support p {
+      font-size: 13px;
+      color: #cbd5f5;
+      margin-bottom: 10px;
+    }
+    .support-list {
+      font-size: 13px;
+      margin-bottom: 14px;
+      padding-left: 16px;
+    }
+    .support-list li {
+      margin-bottom: 4px;
+    }
+
+    /* CTA / contact wrapper */
+    .cta {
+      padding: 36px 0 40px;
+    }
+    .cta-box {
+      max-width: 720px;
+      margin: 0 auto 0 0;
+      padding: 24px 20px;
+      background: #0e172c;
+      border-radius: 24px;
+      color: #e5e7eb;
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.5);
+    }
+    .cta-box h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .cta-box p {
+      font-size: 13px;
+      color: #d1d5db;
+      margin-bottom: 12px;
+    }
+    .cta-note {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    /* ---- Consultation Form ---- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 18px;
+      border: 1px solid #e2e6f0;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .form-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b1726;
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .form-label span.req {
+      color: #ef4444;
+      margin-left: 2px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #d1d5e5;
+      padding: 8px 10px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background: #f9fafb;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15);
+      background: #ffffff;
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1.2fr;
+      gap: 8px;
+    }
+
+    .form-hint {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .form-textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .form-footer {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .form-footer small {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .form-submit {
+      border: none;
+      background: linear-gradient(135deg, #1769aa, #25b39d);
+      color: #fff;
+      border-radius: 999px;
+      padding: 9px 22px;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 10px 20px rgba(19, 85, 137, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .form-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(19, 85, 137, 0.35);
+    }
+
+    footer {
+      padding: 16px 0 20px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+    footer a {
+      color: #4b5563;
+    }
+
+    /* RWD */
+    @media (max-width: 900px) {
+      .hero-inner,
+      .services-grid,
+      .analytics-grid,
+      .cases-grid,
+      .support-inner,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .process-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      nav ul {
+        display: none;
+      }
+      header .nav {
+        padding-bottom: 8px;
+      }
+      .cta-box {
+        margin: 0 auto 20px;
+      }
+    }
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 32px;
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .process-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .card, .service-item, .step, .cta-box, .form-card {
+        border-radius: 14px;
+      }
+      .hero-title {
+        font-size: 26px;
+      }
+      .form-row-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <div style="font-size:22px; font-weight:700; color:#004a8a;">芙好薪程</div>
-    <nav>
-        <a href="#service">服務內容</a>
-        <a href="#about">關於我們</a>
-        <a href="#contact">聯繫我們</a>
-        <a href="https://line.me/ti/p/0Aa2QA4oV5" class="btn-line">LINE 諮詢</a>
-    </nav>
-</header>
-
-<div class="hero">
-    <div>
-        <h1>薪資交給專業，營運才能更專心</h1>
-        <p>專注薪資外包，讓小企業與長照機構回到真正重要的事 — 服務、營運與成長。</p>
-        <div class="cta-wrap">
-            <a href="#contact" class="btn-primary">立即預約 30 分鐘線上諮詢</a>
-            <a href="#service" class="btn-outline">查看服務內容</a>
-            <a href="https://line.me/ti/p/0Aa2QA4oV5" class="btn-primary" style="background:#00bb2d;">一鍵 LINE 諮詢</a>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge">薪</div>
+        <div>
+          芙好薪程
+          <div style="font-size:11px;font-weight:400;color:#6b7280;">新創企業｜長照與醫療產業專屬｜薪資外包顧問</div>
         </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#services">服務項目</a></li>
+          <li><a href="#process">合作流程</a></li>
+          <li><a href="#analytics">控管與數據</a></li>
+          <li><a href="#contact">聯絡我們</a></li>
+        </ul>
+      </nav>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <a href="https://line.me/ti/p/0Aa2QA4oV5" target="_blank" class="btn btn-outline">
+          <span style="margin-right:4px;">💬</span> LINE 諮詢
+        </a>
+        <a href="#contact" class="btn btn-primary">預約諮詢</a>
+      </div>
     </div>
-</div>
+  </header>
 
-<section id="about">
-    <h2>我們能為長照與小企業解決什麼？</h2>
-    <p>
-        大多企業耗費大量時間在核薪、對帳、保費試算、獎勵計算。
-        芙好薪程專注薪資外包，讓行政回歸管理功能、讓主管回到育才與營運。
-    </p>
-</section>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-tag">
+            <span>✔ 合規 ✔ 保密 ✔ 準時撥薪</span>
+          </div>
+          <h1 class="hero-title">
+            把薪資作業交給 <span>芙好薪程</span><br>
+            讓您的團隊回到「專業」與「客戶服務」。
+          </h1>
+          <p class="hero-subtitle">
+            從日常薪資計算、勞健保與勞退異動，到複雜獎勵與加班規則，
+            由具實務經驗的人力資源顧問團隊全程代管，降低風險、節省時間，讓經營者專注在組織成長。
+          </p>
+          <div class="hero-pills">
+            <span class="pill">勞基法工時與加班試算</span>
+            <span class="pill">長照 2.0 / 3.0 給付結構</span>
+            <span class="pill">AA 碼獎勵與津貼設計</span>
+            <span class="pill">跨據點、多班別薪資整合</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">立即預約 30 分鐘線上諮詢</a>
+            <a href="https://line.me/ti/p/0Aa2QA4oV5" target="_blank" class="btn btn-outline">
+              <span style="margin-right:4px;">💬</span> LINE 諮詢
+            </a>
+            <a href="#services" class="btn btn-outline">查看服務內容</a>
+          </div>
+          <div class="hero-note">
+            ✅ 適用 10–100 人組織｜✅ 可配合現有打卡系統｜✅ 提供薪資明細與管理報表
+          </div>
+        </div>
+        <div class="hero-img">
+          <img src="hero-bg.png" alt="薪資外包合約與薪資系統畫面">
+        </div>
+      </div>
+    </section>
 
-<section id="service">
-    <h2>專屬薪資外包服務</h2>
-    <p>
-        ✔ 適用小企業、長照機構、醫療體系  
-        ✔ 核薪、獎勵計算與合規管理  
-        ✔ 減少錯誤風險、節省人力時間、提升制度透明
-    </p>
-</section>
+    <section>
+      <div class="container">
+        <h2 class="section-title">您的行政團隊，也遇到這些壓力嗎？</h2>
+        <p class="section-subtitle">芙好薪程從實務現場整理出 3 大常見痛點，協助你一次解決。</p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>法規複雜、修法頻繁</h3>
+            <p>勞基法、勞保、健保、勞退與各種獎勵辦法計算複雜，人資必須花大量時間追法規、算級距、查試算結果是否正確。</p>
+          </div>
+          <div class="card">
+            <h3>薪資計算零碎且難以驗證</h3>
+            <p>長照居家服務單位跨據點、跨班別、臨時加班與補休、A 碼與 AA05/AA06 獎勵、夜班津貼… 一旦公式錯誤，就可能衝擊員工信任與機構評鑑。</p>
+          </div>
+          <div class="card">
+            <h3>只忙著「算帳」沒空做策略</h3>
+            <p>多數時間卡在對時數、對明細、對保費，無法真正投入人才發展、績效與組織設計，長期削弱營運效率與競爭力。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="contact">
-    <div class="contact-box">
-        <h3>立即聯繫我們</h3>
-        <p>想了解方案？需要導入諮詢？我們隨時回覆您。</p>
-        <a href="mailto:fullhouse6658@gmail.com" class="btn-primary" style="display:block;margin-bottom:12px;">Email 諮詢</a>
-        <a href="https://line.me/ti/p/0Aa2QA4oV5" class="btn-primary" style="background:#00bb2d;">LINE 直接洽詢</a>
+    <section id="services" class="services">
+      <div class="container services-grid">
+        <div>
+          <h2 class="section-title" style="text-align:left;">芙好薪程｜薪資外包與 HR 顧問服務</h2>
+          <p class="section-subtitle" style="text-align:left;margin-bottom:16px;">
+            不只是幫你算薪水，而是從「制度設計 × 合規風險 × 數據管理」的角度，打造一套能長期運作的薪資治理系統。
+          </p>
+          <div class="chips">
+            <span class="chip">薪資計算與撥薪作業</span>
+            <span class="chip">勞健保、就保、職災與勞退代辦</span>
+            <span class="chip">長照/醫療專屬獎勵制度設計</span>
+            <span class="chip">薪資稽核與風險檢核報告</span>
+          </div>
+          <div class="service-list">
+            <div class="service-item">
+              <b>薪資計算與發放：</b>月薪、時薪、績效獎金、加班費、各類津貼與補扣款，皆依勞基法及實務規範試算與複核。
+            </div>
+            <div class="service-item">
+              <b>勞健保、就保與職災保險：</b>新進、離職、加保異動與保費分攤，依最新投保級距表與官方試算結果比對。
+            </div>
+            <div class="service-item">
+              <b>勞退提繳與退休金試算：</b>依 每年最新月提繳分級表與各級距工資，協助雇主掌握成本與員工權益。
+            </div>
+            <div class="service-item">
+              <b>長照與醫療產業專案：</b>AA05/AA06、A 碼獎勵、夜間照護津貼、偏鄉與原民加給等，提供專屬規則建置與 Excel/系統對接建議。
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="compliance.png" alt="薪資外包效率與分析儀表板">
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">合作流程｜從盤點到穩定上線</h2>
+        <p class="section-subtitle">以顧問方式逐步導入，降低員工疑慮與轉換風險。</p>
+        <div class="process-list">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-title">免費初談與需求診斷</div>
+            <p>了解產業別、員工規模、薪資結構與現行作業流程，初步評估是否適合外包及可節省的時間與成本。</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <div class="step-title">薪資制度與風險健診</div>
+            <p>檢視加班計算、獎金規則、假勤與打卡制度、留職停薪與特休等，提出合規與優化建議。</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-title">導入規劃與資料建檔</div>
+            <p>協助整理員工名冊、歷史薪資與保費資料，建立標準化欄位與試算模板，可與既有排班/打卡系統串接。</p>
+          </div>
+          <div class="step">
+            <div class="step-number">04</div>
+            <div class="step-title">正式代算與持續顧問</div>
+            <p>每月依流程完成薪資試算、複核、撥薪與報表，並提供年度調薪、獎金政策與組織發展的人資顧問建議。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="analytics">
+      <div class="container analytics-grid">
+        <div>
+          <img src="Gemini_efficiency.png" alt="Payroll Analytics 數據儀表板" />
+        </div>
+        <div>
+          <h2 class="section-title" style="text-align:left;">從「薪資作業」提升為「營運數據」</h2>
+          <p class="section-subtitle" style="text-align:left;margin-bottom:10px;">
+            每一筆薪資，其實都是一筆關於工時、人力配置與服務效能的資訊。芙好薪程將原本分散在 Excel 與紙本中的資料，轉化成對經營有用的視角。
+          </p>
+          <div class="analytics-tags">
+            <span>人力成本結構分析</span>
+            <span>Output per FTE</span>
+            <span>加班與離職風險指標</span>
+            <span>依據據點與班別的成本比較</span>
+          </div>
+          <ul class="case-list">
+            <li>提供可匯入 Power BI 或其他 BI 工具的標準化資料表，方便你自行延伸報表。</li>
+            <li>每季可選配一次「薪資與人力成本檢視會議」，協助管理團隊對齊策略與指標。</li>
+            <li>搭配長照評鑑與政府補助規則，評估獎勵設計是否兼顧「合規 × 激勵 × 成本」。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container cases-grid">
+        <div>
+          <img src="service-team.png" alt="管理團隊討論薪資方案">
+        </div>
+        <div>
+          <span class="case-chip">適用對象</span>
+          <h2 class="section-title" style="text-align:left;">我們特別擅長協助這些類型的機構</h2>
+          <ul class="case-list">
+            <li>長照機構：居家服務、巷弄長照站、日照中心、護理之家、失智據點等。</li>
+            <li>醫療院所：診所、醫院附設長照單位、社區醫療與健康促進中心。</li>
+            <li>跨據點社福組織：多區辦公室、不同縣市薪資條件與加給差異管理。</li>
+            <li>中小企業：希望將薪資作業標準化，但暫時不再增加人資人力者。</li>
+          </ul>
+          <p style="font-size:13px;color:#6b7280;margin-top:10px;">
+            若你目前已使用 Excel、Google 試算表或其他打卡系統，我們可以在不更動既有工具的前提下，協助優化欄位與流程，再接手薪資計算與稽核。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="support">
+      <div class="container support-inner">
+        <div>
+          <div class="support-badge">真人顧問 × 線上客服 × 文件化流程</div>
+          <h2 class="support-title">每個月，你都會有「自己的薪資顧問團隊」。</h2>
+          <p>
+            芙好薪程不只是外包廠商，而是隨時可以討論的 HR 夥伴。從新制上路、加班爭議到員工說明，我們提供清楚的文件與說法，協助你穩定內部溝通。
+          </p>
+          <ul class="support-list">
+            <li>專屬窗口：固定顧問，了解你的產業脈絡與制度特色。</li>
+            <li>線上支援：E-mail、Line 或視訊會議說明薪資結果與制度調整。</li>
+            <li>文件化：提供 SOP、說明簡報與員工 FAQ，減少重複解釋成本。</li>
+          </ul>
+          <div class="hero-actions" style="margin-bottom:0;">
+            <a href="#contact" class="btn btn-primary">想了解收費與合作模式</a>
+          </div>
+        </div>
+        <div>
+          <img src="support.png" alt="友善的線上薪資顧問支援">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <div class="cta-box" style="text-align:left;margin:0;">
+              <h2>需求諮詢｜讓芙好薪程先認識你的狀況</h2>
+              <p>
+                填寫以下線上諮詢表單，我們會在 2 個工作天內，由專屬薪資顧問與你聯繫，
+                一起盤點目前的薪資作業流程、人數規模與產業特性，並提供初步的合作建議與預估費用區間。
+              </p>
+              <ul style="font-size:13px;color:#d1d5db;margin-left:16px;margin-bottom:14px;">
+                <li>適用對象：長照機構、醫療院所、社福組織、中小企業等。</li>
+                <li>若已有既用系統（打卡、排班、HR 系統），也可一併註明，方便我們協助評估串接方式。</li>
+              </ul>
+              <div class="cta-note">
+                表單送出後，我們不會主動推銷綁約，而是先確認是否真的適合外包與合作模式，再由你決定下一步。
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="form-title">線上諮詢表單</div>
+            <div class="form-subtitle">請留下基本資料與需求，我們將有專人與您聯繫。</div>
+
+            <form id="consultForm">
+              <div class="form-group">
+                <label class="form-label">
+                  <span>聯絡人姓名<span class="req">*</span></span>
+                </label>
+                <input class="form-input" type="text" name="contact_name" placeholder="請輸入聯絡人姓名" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>性別<span class="req">*</span></span>
+                </label>
+                <select class="form-select" name="gender" required>
+                  <option value="">請選擇性別</option>
+                  <option value="female">女</option>
+                  <option value="male">男</option>
+                  <option value="other">其他 / 不方便說明</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>聯絡方式</span>
+                  <span style="font-size:11px;color:#9ca3af;">至少提供一種聯絡方式</span>
+                </label>
+                <div class="form-row-3">
+                  <input class="form-input" type="tel" name="phone" placeholder="電話：例 09xx-xxx-xxx">
+                  <input class="form-input" type="email" name="email" placeholder="Email：例 nam@example.com">
+                  <input class="form-input" type="text" name="line_id" placeholder="Line ID：例 @yourid">
+                </div>
+                <div class="form-hint">若方便，也歡迎提供 Email 與 Line ID，便於傳送試算表與說明文件。</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>公司名稱<span class="req">*</span></span>
+                </label>
+                <input class="form-input" type="text" name="company_name" placeholder="請輸入公司或機構名稱" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>公司地址</span>
+                </label>
+                <input class="form-input" type="text" name="company_address" placeholder="請輸入公司地址（選填）">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>產業別<span class="req">*</span></span>
+                </label>
+                <select class="form-select" name="industry" required>
+                  <option value="">請選擇產業</option>
+                  <option value="ltc">長照機構（居服、日照、巷弄長照站等）</option>
+                  <option value="medical">醫療院所 / 社區醫療</option>
+                  <option value="social">社福機構 / 協會 / 財團法人</option>
+                  <option value="smb">一般中小企業</option>
+                  <option value="other">其他產業</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>員工人數<span class="req">*</span></span>
+                </label>
+                <select class="form-select" name="employee_count" required>
+                  <option value="">請選擇員工人數</option>
+                  <option value="lt20">20 人以下</option>
+                  <option value="20-49">20–49 人</option>
+                  <option value="50-99">50–99 人</option>
+                  <option value="100-199">100–199 人</option>
+                  <option value="ge200">200 人以上</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span>需求描述<span class="req">*</span></span>
+                  <span style="font-size:11px;color:#9ca3af;">可簡單說明目前困擾與期待的服務內容</span>
+                </label>
+                <textarea class="form-textarea" name="requirement" placeholder="例如：目前由單一人資手動算薪，工時與 A 碼獎勵規則複雜，希望委外薪資計算與保費試算，並協助設計各據點獎勵與報表……" required></textarea>
+              </div>
+
+              <div class="form-footer">
+                <small>送出表單代表你同意芙好薪程於諮詢聯繫期間使用上述資料，僅供聯絡與服務評估之用。</small>
+                <button type="submit" class="form-submit">
+                  提交諮詢
+                  <span>✈</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> 芙好薪程．人力資源薪資外包顧問服務　
+      ｜ 本網站內容僅供企業內部評估與教育參考使用。
     </div>
-</section>
+  </footer>
 
-<footer>
-    © 芙好薪程 HR Outsourcing │  
-    <a href="https://line.me/ti/p/0Aa2QA4oV5">LINE</a> │  
-    fullhouse6658@gmail.com
-</footer>
+  <script>
+    // 年份
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    // 表單送出：送到 Google Apps Script Web App
+    const form = document.getElementById("consultForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // 至少要有一種聯絡方式
+      if (!data.phone && !data.email && !data.line_id) {
+        alert("請至少填寫一種聯絡方式（電話 / Email / Line ID）");
+        return;
+      }
+
+      // TODO: 把下面這個網址改成你的 Google Apps Script Web App URL
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbzL0Uowo314iyqlfotM0u3XAkdIv3PiDWocsVyiWhQLOX_AGIZSbZQ8yAlYUAsstcs1cg/exec";
+
+      fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      .then(() => {
+        alert("已送出諮詢資料，我們將儘快與您聯繫，感謝！");
+        form.reset();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("送出時發生問題，請稍後再試或改用 Email 連繫。");
+      });
+    });
+  </script>
 </body>
 </html>
